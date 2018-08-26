@@ -245,7 +245,7 @@ nav h1 a {
   color: var(--white);
   display: inline-block;
   font-size: 3vw;
-  margin: 15px 0 0;
+  margin: 15px auto;
   padding: 8px 30px 10px;
   text-align: center;
   text-transform: uppercase;
