@@ -5,7 +5,7 @@
   --mainFont: Arial, Helvetica, sans-serif;
 
   /* Contrast colors */
-  --color1: hsl(33, 100%, 48%);
+  --color1: hsl(0, 100%, 34%);
   --color2: hsl(208, 98%, 40%);
   --color2dark: hsl(208, 98%, 25%);
 
@@ -88,6 +88,10 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
   text-align: center;
   text-transform: uppercase;
 }
+
+#footer a {
+  color: hsl(207, 95%, 84%);
+}
 /* ====================== Navigation ====================== */
 nav {
   width: 100%;
@@ -154,6 +158,10 @@ nav h1 a {
   height: 400px;
   width: 100%;
   background-color: var(--lightGrey);
+}
+
+.leaflet-container a {
+  color: var(--color2dark);
 }
 /* ====================== Restaurant Filtering ====================== */
 .filter-options {
