@@ -46,7 +46,7 @@ When the server is running, in the browser, navigate to `http://localhost:8000` 
 
 ## Features of the App
 When you load the app there will be a map and a list of all the restaurants available to view.
-The map is loaded using leaflet and Mapbox. The map shows all the restaurant locations.
+The map is loaded using leaflet.js and Mapbox. The map shows all the restaurant locations.
 
 There is a filter option form which enables the user to filter the restaurants by neighborhood and cuisine type.
 
