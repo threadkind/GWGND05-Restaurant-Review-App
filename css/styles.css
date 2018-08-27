@@ -20,6 +20,8 @@
   --white: hsl(0, 0%, 100%);
 }
 
+/* R U L E S - - - - - */
+
 * {
   text-decoration: none;
   font-family: var(--mainFont);
@@ -427,7 +429,7 @@ nav h1 a {
 
 
 /* M E D I A   Q U E R I E S */
-/*-------------------------------------------*/
+/*----------------- T A B L E T --------------------------*/
 
 @media only screen and (min-width: 600px) {
   #restaurants-list {
@@ -488,7 +490,7 @@ nav h1 a {
 }
 
 
-/*-------------------------------------------*/
+/*------------------- D E S K T O P ------------------------*/
 
 @media only screen and (min-width: 1000px) {
   #maincontent, .inside, header, footer {
