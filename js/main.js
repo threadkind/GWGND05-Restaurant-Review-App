@@ -5,6 +5,7 @@ var newMap
 var markers = []
 
 
+
 //  SERVICE WORKER START
 
 if('serviceWorker' in navigator){
@@ -16,19 +17,6 @@ if('serviceWorker' in navigator){
     console.log(`SW error -> ${error}`)
   })
 }
-
-
-// if ('serviceWorker' in navigator) {
-//   window.addEventListener('load', function() {
-//     navigator.serviceWorker.register('/sw.js').then(function(registration) {
-//       // Registration was successful
-//       console.log('ServiceWorker registration successful with scope: ', registration.scope);
-//     }, function(err) {
-//       // registration failed :(
-//       console.log('ServiceWorker registration failed: ', err);
-//     });
-//   });
-// }
 
 /**
  * Fetch neighborhoods and cuisines as soon as the page is loaded.
@@ -186,10 +174,15 @@ fillRestaurantsHTML = (restaurants = self.restaurants) => {
 createRestaurantHTML = (restaurant) => {
   const li = document.createElement('li');
 
+  // const div = document.createElement('div');
+  // div.className = 'image-wrapper';
+
   const image = document.createElement('img');
   image.className = 'restaurant-img';
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
   image.alt = `${restaurant.name} Restaurant`;
+  // image.style.background = `url(${DBHelper.imageUrlForRestaurant(restaurant)})`;
+  // div.append(image);
   li.append(image);
 
   const name = document.createElement('h2');
@@ -204,12 +197,18 @@ createRestaurantHTML = (restaurant) => {
   address.innerHTML = restaurant.address;
   li.append(address);
 
+  const moreWrapper = document.createElement('div');
+  moreWrapper.className = 'more-wrapper';
+
   const more = document.createElement('a');
   more.innerHTML = `View Details for<br>${restaurant.name}`;
   more.href = DBHelper.urlForRestaurant(restaurant);
-  li.append(more)
+  moreWrapper.append(more);
+  li.append(moreWrapper);
 
-  return li
+  return li;
+
+
 }
 
 /**
@@ -237,4 +236,5 @@ addMarkersToMap = (restaurants = self.restaurants) => {
     self.markers.push(marker);
   });
 } */
+
 

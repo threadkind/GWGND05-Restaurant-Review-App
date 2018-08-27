@@ -1,6 +1,7 @@
 @charset "utf-8";
 /* CSS Document */
 
+/* V A R I A B L E S - - - - - */
 :root {
   --mainFont: Arial, Helvetica, sans-serif;
 
@@ -17,15 +18,14 @@
   --lightGrey: hsl(0, 0%, 80%);
   --lightestGrey: hsl(0, 0%, 92%);
   --white: hsl(0, 0%, 100%);
-
 }
 
 * {
   text-decoration: none;
+  font-family: var(--mainFont);
 }
 
 body, td, th, p, ul, li{
-	font-family: var(--mainFont);
 	font-size: 3vh;
 	color: var(--darkGrey);
 }
@@ -38,6 +38,7 @@ body {
 	background-color: var(--white);
 	margin: 0;
 	position:relative;
+  width: 100vw;
 }
 
 a {
@@ -47,21 +48,19 @@ a {
 a:hover, a:focus {
 	color: var(--color2);
 }
-a img{
+
+a img {
 	border: none 0px var(--white);
 }
+
 h1, h2, h3, h4, h5, h6 {
-  font-family: Arial, Helvetica, sans-serif;
   margin: 0 0 3%;
-}
-article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
-	display: block;
 }
 
 .skip-link, .inside .skip-link {
   position: absolute;
   font-size: 18px;
-  top: -70px;
+  top: -100px;
   left: 0;
   background: var(--white);
   padding: 1%;
@@ -75,23 +74,28 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
 #maincontent {
   background-color: var(--lightestGrey);
   min-height: 100%;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-template-columns: 100%;
+  width: 100%;
 }
 
 #footer {
   background-color: var(--darkestGrey);
   color: var(--lightGrey);
-  font-size: 2vh;
+  font-size: 16px;
   letter-spacing: 0.5vw;
   padding: 3vw 0;
   text-align: center;
   text-transform: uppercase;
+  width: 100%;
 }
 
 #footer a {
   color: hsl(207, 95%, 84%);
 }
+
+
 /* ====================== Navigation ====================== */
 nav {
   width: 100%;
@@ -105,7 +109,7 @@ nav {
 
 nav h1 a {
   color: var(--white);
-  font-size: 4vw;
+  font-size: 3vmin;
   font-weight: 200;
   letter-spacing: 1.5vw;
   text-transform: uppercase;
@@ -122,7 +126,7 @@ nav h1 a {
 /* Display list items side by side */
 #breadcrumb li {
     display: inline;
-    font-size: 4vw;
+    font-size: 4vmin;
 }
 
 /* Add a slash symbol (/) before/behind each list item */
@@ -151,7 +155,7 @@ nav h1 a {
 /* ====================== Map ====================== */
 #map-container {
   width: 100%;
-  height: 400px;
+  height: 300px;
 }
 
 #map {
@@ -160,9 +164,7 @@ nav h1 a {
   background-color: var(--lightGrey);
 }
 
-.leaflet-container a {
-  color: var(--color2dark);
-}
+
 /* ====================== Restaurant Filtering ====================== */
 .filter-options {
   width: 100%;
@@ -172,6 +174,7 @@ nav h1 a {
   display: flex;
   flex-wrap: wrap;
 }
+
 .filter-options h2 {
   color: var(--white);
   font-size: 4vw;
@@ -180,10 +183,10 @@ nav h1 a {
   margin: 2vw;
   width: 100%;
 }
+
 .filter-options select {
   background-color: var(--white);
   border: 1px solid var(--white);
-  font-family: Arial,sans-serif;
   font-size: 3vw;
   height: 35px;
   letter-spacing: 0;
@@ -191,6 +194,7 @@ nav h1 a {
   padding: 0 10px;
   width: auto;
 }
+
 
 /* ====================== Restaurant Listing ====================== */
 #restaurants-list {
@@ -209,7 +213,6 @@ nav h1 a {
 #restaurants-list li {
   background-color: var(--white);
   border: 2px solid var(--lightGrey);
-  font-family: Arial,sans-serif;
   margin-bottom: 3%;
   min-height: 380px;
   padding: 3%;
@@ -217,60 +220,74 @@ nav h1 a {
   width: 85%;
   border-radius: 10px 0 10px 0;
 }
+
 #restaurants-list .restaurant-img {
+  display: block;
+  max-width:800px;
+  max-height:600px;
+  width: 100%;
+  height: auto;
   background-color: var(--lightGrey);
   margin: 0;
   padding: 0;
-  width: 100%;
-  min-height: 248px;
   border-radius: 10px 0;
 }
+
 #restaurants-list li h2 {
   color: var(--color1);
   font-family: Arial,sans-serif;
-  font-size: 5vw;
+  font-size: 4.5vmin;
   font-weight: 200;
   letter-spacing: 0;
   line-height: 1.3;
   margin: 20px 0 10px;
   text-transform: uppercase;
+  text-align: center;
 }
+
 #restaurants-list p {
   margin: 0;
-  font-size: 4vw;
+  font-size: 4vmin;
 }
+
+.more-wrapper {
+  display: inline-block;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
 #restaurants-list li a {
   background-color: var(--color1);
   border-bottom: 3px solid #eee;
   color: var(--white);
-  display: inline-block;
-  font-size: 3vw;
+  font-size: 3.5vmin;
   margin: 15px auto;
   padding: 8px 30px 10px;
   text-align: center;
   text-transform: uppercase;
 }
 
+
 /* ====================== Restaurant Details ====================== */
 .inside header {
-/*  position: fixed;
-  top: 0;
-*/  width: 100%;
+  width: 100%;
   z-index: 10;
 }
 
 .inside #map-container {
   background: var(--color2) none repeat scroll 0 0;
-  height: 400px;
-/*  right: 0;
-  top: 100px;
-*/  width: 100%;
+  height: 300px;
+  width: 100%;
 }
+
 .inside #map {
   background-color: var(--lightGrey);
   height: 100%;
   width: 100%;
 }
+
 .inside #footer {
   width: 100%;
 }
@@ -284,36 +301,39 @@ nav h1 a {
 .inside header {
   grid-row: 1 / span 1
 }
+
 .inside main {
   grid-row: 2 / span 1
 }
+
 .inside footer {
   grid-row: 3 / span 1
 }
 
-#restaurant-name {
+#restaurant-name, #reviews-container h2 {
   color: var(--color1);
-  text-shadow: 1px 1px 1px var(--black);
-  font-family: Arial,sans-serif;
-  font-size: 6vw;
+  font-size: 6vmin;
   font-weight: 200;
   letter-spacing: 0;
   margin: 15px 0 30px;
   text-transform: uppercase;
   line-height: 1.1;
 }
+
 #restaurant-img {
 	width: 90%;
   border-radius: 10px 0;
 }
+
 #restaurant-address {
-  font-size: 4.5vw;
+  font-size: 4.5vmin;
   margin: 1% 1% 3%;
 }
+
 #restaurant-cuisine {
   background-color: var(--darkGrey);
   color: var(--lightGrey);
-  font-size: 5.5vw;
+  font-size: 4.5vmin;
   font-weight: 300;
   letter-spacing: 10px;
   margin: 0 0 20px;
@@ -333,21 +353,14 @@ nav h1 a {
 #restaurant-container, #reviews-container {
   border-bottom: 1px solid var(--lightGrey);
   border-top: 1px solid var(--white);
-  padding: 30px 4% 80px;
   width: 100%;
 }
 
-#reviews-container h2 {
-  color: var(--color1);
-  font-size: 24pt;
-  font-weight: 300;
-  letter-spacing: -1px;
-  padding-bottom: 1pt;
-}
 #reviews-list {
   margin: 0;
   padding: 0;
 }
+
 #reviews-list li {
   background-color: var(--white);
   border: 2px solid var(--lightestGrey);
@@ -360,12 +373,14 @@ nav h1 a {
   border-radius: 20px 0 20px 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 8vh auto auto;
+  grid-template-rows: 12vmin auto auto;
 }
+
 #reviews-list li p {
   padding: 0 0 10px;
   padding: 4%;
 }
+
 #reviews-list li p:first-child {
   margin: 0;
   background: var(--black);
@@ -373,6 +388,7 @@ nav h1 a {
   border-radius: 20px 0 0 0;
   font-size: 4.5vw;
 }
+
 #reviews-list li p:nth-child(2) {
   margin: 0;
   background: var(--black);
@@ -391,19 +407,21 @@ nav h1 a {
   font-size: 3vw;
   font-weight: bolder;
 }
+
 #reviews-list li p:nth-child(4) {
   margin: 0;
   font-size: 4vw;
   grid-row: 3 / span 1;
   grid-column: 1 / span 2;
 }
+
 #restaurant-hours {
     width: 90%;
 }
+
 #restaurant-hours td {
   color: var(--darkGrey);
   font-size: 4.5vw;
-
 }
 
 
@@ -412,14 +430,60 @@ nav h1 a {
 
 @media only screen and (min-width: 600px) {
   #restaurants-list {
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto;
-}
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+  }
 
   #restaurants-list li {
       width: 90%;
       margin: 1%;
     }
+
+  .inside #maincontent {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  #map-container {
+    width: inherit;
+    grid-row: 1/ span 1;
+    grid-column: 1/ span 2;
+  }
+
+  #restaurant-container {
+    width: 90%;
+    grid-row: 2/ span 1;
+    grid-column: 1/ span 1;
+    height: 900px;
+  }
+
+  #reviews-container {
+    width: 90%;
+    grid-row: 2/ span 1;
+    grid-column: 2/ span 1;
+  }
+
+  #reviews-list li p:first-child {
+    font-size: 3.5vmin;
+  }
+
+  #reviews-list li p:nth-child(2), #reviews-list li p:nth-child(4) {
+    font-size: 2.6vmin;
+  }
+
+  #reviews-list li p:nth-child(3) {
+    width: auto;
+    font-size: 2.5vmin;
+  }
+
+  #restaurant-hours tr td {
+    font-size: 2vmin;
+    width: 50%;
+  }
+
+  #restaurant-hours {
+    font-size: 3vmin;
+  }
+
 }
 
 
@@ -429,17 +493,6 @@ nav h1 a {
   #maincontent, .inside, header, footer {
     width: 1000px;
     margin: 0 auto;
-  }
-
-  #maincontent {
-    display: grid;
-    grid-template-rows: auto;
-    grid-template-columns: 1fr 1fr;
-  }
-
-  #map-container {
-    grid-row: 1/ span 1;
-    grid-column: 1/ span 2;
   }
 
   .filter-options {
@@ -463,15 +516,8 @@ nav h1 a {
     font-size: 20px;
   }
 
-  #restaurant-name {
+  #restaurant-name, #reviews-container h2 {
     font-size: 26px;
-  }
-
-  #restaurant-container {
-   width: 90%;
-   grid-row: 2/ span 1;
-   grid-column: 1/ span 1;
-   height: 900px;
   }
 
   #restaurant-container p {
@@ -488,51 +534,51 @@ nav h1 a {
 
   #restaurant-hours tr td {
     font-size: 18px;
-    width: 50%;
   }
 
   #restaurants-list {
-    grid-template-columns: 33% 33% 33%;
+    width: inherit;
+    grid-template-columns: 333px 333px 333px;
     grid-template-rows: auto;
+    margin-top: 10px;
   }
 
   #restaurants-list li {
-      width: 90%;
-      margin: 1%;
-    }
-
-  #restaurants-list li h1 {
-  font-size: 24px;
-  margin: 20px 0 10px;
+    width: 90%;
+    margin: 1%;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: auto;
   }
+
+  #restaurants-list li h2 {
+    font-size: 20px;
+    margin: 20px 0 10px;
+    text-align: center;
+    align-self: start;
+  }
+
   #restaurants-list p {
     font-size: 20px;
   }
+
   #restaurants-list li a {
     font-size: 18px;
     margin: 15px 0 0;
     padding: 8px 30px 10px;
   }
 
-  #reviews-container {
-    width: 90%;
-    grid-row: 2/ span 1;
-    grid-column: 2/ span 1;
+  #reviews-list li p:first-child {
+    font-size: 20px;
   }
 
-  #reviews-list li p:first-child {
-  font-size: 20px;
-  }
-  #reviews-list li p:nth-child(2) {
+  #reviews-list li p:nth-child(2), #reviews-list li p:nth-child(4) {
     font-size: 18px;
   }
 
   #reviews-list li p:nth-child(3) {
     width: auto;
     font-size: 16px;
-  }
-  #reviews-list li p:nth-child(4) {
-    font-size: 18px;
   }
 
 }
