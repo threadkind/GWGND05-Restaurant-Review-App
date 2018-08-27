@@ -328,6 +328,7 @@ nav h1 a {
 #restaurant-address {
   font-size: 4.5vmin;
   margin: 1% 1% 3%;
+  padding: 0 20px;
 }
 
 #restaurant-cuisine {
@@ -476,7 +477,7 @@ nav h1 a {
   }
 
   #restaurant-hours tr td {
-    font-size: 2vmin;
+    font-size: 2.5vmin;
     width: 50%;
   }
 
