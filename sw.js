@@ -1,5 +1,3 @@
-let staticCache = restaurant_reviews_v1
-
 self.addEventListener('fetch',
 event => {
 	console.log(event.request.url);
@@ -17,11 +15,10 @@ event => {
 }
 );
 
-self.addEventListener('install',
-event => {
+self.addEventListener('install', event => {
 	console.log(`Successful`);
 	event.waitUntil(
-    caches.open(staticCache).then(function(cache) {
+    caches.open('restaurant_reviews').then(function(cache) {
       return cache.addAll(
         [
           '/css/styles.css',
@@ -36,6 +33,8 @@ event => {
           '/img/8.jpg',
           '/img/9.jpg',
           '/img/10.jpg',
+          '/img/icons-192.png',
+          '/img/icons-512.png',
           '/js/dbhelper.js',
           '/js/main.js',
           '/js/restaurant_info.js',
