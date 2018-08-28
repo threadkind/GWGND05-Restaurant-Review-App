@@ -34,16 +34,16 @@
     <main id="maincontent">
 
       <section id="map-container">
-        <div id="map"></div>
+        <div id="map" role="application" aria-label="Map imported from Mapbox"></div>
       </section>
 
       <section>
         <div class="filter-options">
           <h2>Filter Results</h2>
-          <select id="neighborhoods-select" name="neighborhoods" onchange="updateRestaurants()">
+          <select id="neighborhoods-select" name="neighborhoods" aria-label="neighborhood select" onchange="updateRestaurants()">
             <option value="all" label="All">All Neighborhoods</option>
           </select>
-          <select id="cuisines-select" name="cuisines" onchange="updateRestaurants()">
+          <select id="cuisines-select" name="cuisines"  aria-label="cuisine select"onchange="updateRestaurants()">
             <option value="all" label="All">All Cuisines</option>
           </select>
         </div>
